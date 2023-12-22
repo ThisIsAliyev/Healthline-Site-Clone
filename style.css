@@ -1,0 +1,1399 @@
+* {
+    margin: 0;
+}
+
+@font-face {
+    font-family: "Proxima Nova Light";
+    src: url(fonts/Mark\ Simonson\ \ Proxima\ Nova\ Condensed\ Light\ TheFontsMaster.com.otf);
+}
+
+@font-face {
+    font-family: "Proxima Nova SemiBold";
+    src: url(fonts/Mark\ Simonson\ \ Proxima\ Nova\ Condensed\ Semibold\ TheFontsMaster.com.otf);
+}
+
+@font-face {
+    font-family: "Proxima Nova Regular";
+    src: url(fonts/Mark\ Simonson\ \ Proxima\ Nova\ Condensed\ Regular\ TheFontsMaster.com.otf);
+}
+
+div {
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+section {
+    width: 75%;
+    height: 100%;
+    display: grid;
+    place-items: center;
+}
+
+.section-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 47px;
+    width: 100%;
+    padding-bottom: 15px;
+    border-bottom: black .5px solid;
+    font-size: 24px;
+    font-weight: 700;
+
+    & a {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        text-decoration: none;
+        color: #02838d;
+
+        & i {
+            margin-left: 10px;
+            font-size: 21px;
+        }
+    }
+
+    & a:hover {
+        color: #db1f88;
+    }
+}
+
+.column {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.row {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+body {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(247, 247, 247);
+
+    & header {
+        width: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 70px;
+        background-color: black;
+        display: grid;
+        place-items: center;
+        color: white;
+        font-family: "Proxima Nova SemiBold", "Arial Narrow", helvetica, arial, system-ui, 'sans-serif';
+        z-index: 15;
+
+        & section {
+            align-items: center;
+
+            & .row {
+                & .header-left {
+                    width: 67%;
+                    height: 100%;
+                    align-items: center;
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    font-size: 18px;
+
+                    & img {
+                        width: 168px;
+                        padding-right: 30px;
+                    }
+
+                    & nav {
+                        height: 100%;
+                        display: flex;
+                        align-items: center;
+
+                        & p {
+                            height: 100%;
+                            display: flex;
+                            padding: 0 22px;
+                            font-size: 20px;
+                            align-items: center;
+                            cursor: pointer;
+                            transition: .3s;
+
+                            & i {
+                                font-size: 11px;
+                                padding-left: 5px;
+                            }
+                        }
+
+                        & p:hover {
+                            color: #fcba44;
+                        }
+                    }
+                }
+
+                & .header-right {
+                    height: 100%;
+                    width: 15%;
+                    display: flex;
+                    justify-content: space-around;
+                    font-size: 18.5px;
+
+                    & i {
+                        font-size: 15px;
+                    }
+
+                    & p,
+                    i {
+                        cursor: pointer;
+                        transition: .3s;
+                    }
+
+                    & p:hover,
+                    i:hover {
+                        color: #fcba44;
+                    }
+                }
+            }
+        }
+
+        & .opened-section {
+            position: absolute;
+            top: 70px;
+            left: 0;
+            right: 0;
+            height: 0; /* 473px */
+            transition: .3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgb(251,245,237);
+            box-shadow: 0 8px 10px rgba(0, 0, 0,.2);
+            z-index: 10;
+
+            & .main-container-1 {
+                height: 75%;
+                width: 75%;
+                padding: 40px 15% 80px 15%;
+                display: none;
+                justify-content: space-between;
+                align-items: center;
+                transition: 1s;
+                transform: translateY(-100%);
+
+                & .section-header {
+                    height: auto;
+                    font-family: sans-serif;
+                    color: black;
+                    font-size: 18px;
+                    padding-bottom: 12px;
+                    border-bottom: solid 2px black;
+
+                    & span,i {
+                        color: black;
+                    }
+
+                    & i {
+                        margin-left: 5px;
+                    }
+                }
+
+                & .left-container {
+                    color: black;
+                    height: 100%;
+                    width: 22%;
+                    display: flex;
+                    flex-direction: column;
+
+                    & .left-main {
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: space-around;
+                        align-items: start;
+                        font-size: 17px;
+                        font-weight: lighter;
+                        font-family: "Proxima Nova Light";
+                        font-family: sans-serif;
+                        margin-top: 6px;
+
+                        & p {
+                            margin: 12px 0;
+                        }
+                    }
+                }
+
+                & .right-container {
+                    height: 100%;
+                    width: 74%;
+                    color: black;
+                    display: flex;
+                    flex-direction: column;
+
+
+                    & .right-main {
+                        display: grid;
+                        grid-template-columns: 1fr 1fr 1fr;
+                        row-gap: 24px;
+                        font-weight: lighter;
+                        font-family: "Proxima Nova Light";
+                        font-family: sans-serif;
+                        font-size: 17px;
+                        margin-top: 18px;
+                    }
+                }
+            }
+
+            & .main-container-2 {
+                height: 75%;
+                width: 75%;
+                padding: 40px 15% 80px 15%;
+                display: none;
+                justify-content: space-between;
+
+                & .section-header {
+                    height: auto;
+                    font-family: sans-serif;
+                    color: black;
+                    font-size: 18px;
+                    padding-bottom: 12px;
+                    border-bottom: solid 2px black;
+
+                    & span,i {
+                        color: black;
+                    }
+
+                    & i {
+                        margin-left: 5px;
+                    }
+                }
+
+                & .columnt-type-1 {
+                    width: 240px;
+                    height: 100%;
+                    display: flex;
+                    flex-direction: column;
+
+                    & .main {
+                        color: black;
+                        display: flex;
+                        flex-direction: column;
+                        font-size: 18px;
+                        font-family: sans-serif;
+                        align-items: start;
+                        margin-top: 6px;
+
+                        & p {
+                            margin: 12px 0;
+                        }
+                    }
+                }
+
+                & .columnt-type-2 {
+                    width: 240px;
+                    height: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    color: black;
+
+                    & .row {
+                        height: auto;
+                        justify-content: space-between;
+                        & img {
+                            width: 50px;
+                        }
+                        & .column {
+                            font-family: "Proxima Nova Light";
+                            font-family: sans-serif;
+                            align-items: start;
+                            width: 170px;
+
+                            & p:first-child {
+                                font-size: 18px;
+                            }
+
+                            & p:last-child {
+                                font-size: 14px;
+                                font-weight: lighter;
+                                line-height: 18px;
+                            }
+                        }
+                    }
+                }
+            }
+
+            & .main-container-3 {
+                height: 75%;
+                width: 75%;
+                display: none;
+                padding: 60px 15%;
+                justify-content: space-between;
+
+                & .section-header {
+                    height: 20px;
+                    font-family: sans-serif;
+                    color: black;
+                    font-size: 18px;
+                    padding-bottom: 12px;
+                    border-bottom: solid 2px black;
+
+                    & span,i {
+                        color: black;
+                    }
+
+                    & i {
+                        margin-left: 5px;
+                    }
+                }
+
+                & .container {
+                    color: black;
+                    height: 100%;
+                    width: 22%;
+                    display: flex;
+                    flex-direction: column;
+
+                    & .main {
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: space-around;
+                        align-items: start;
+                        font-size: 17px;
+                        font-weight: lighter;
+                        font-family: "Proxima Nova Light";
+                        font-family: sans-serif;
+                        margin-top: 6px;
+
+                        & p {
+                            margin: 12px 0;
+                        }
+                    }
+                }
+            }
+
+            & .main-container-4 {
+                height: 75%;
+                width: 75%;
+                display: none;
+                flex-direction: column;
+                padding: 20px 15% 100px 15%;
+                justify-content: space-between;
+                color: black;
+
+                & .section-header {
+                    width: 100%;
+                    flex-direction: column;
+                    align-items: start;
+                    font-family: sans-serif;
+                    font-weight: 600;
+                    padding-bottom: 22px;
+                    border-bottom: solid 2px black;
+
+                    & span,i {
+                        color: black;
+                    }
+                    & .row {
+                        font-size: 20px;
+                        margin-bottom: 12px;
+                    }
+
+                    & span {
+                        font-size: 16px;
+                        font-weight: lighter;
+                    }
+                }
+                
+                & .grid-container {
+                    width: 100%;
+                    display: grid;
+                    grid-template-columns: 1fr 1fr 1fr;
+                    gap: 30px;
+                    padding: 30px 0;
+
+                    & img {
+                        width: 70px;
+                    }
+
+                    & p {
+                        margin-left: 20px;
+                        font-family: sans-serif;
+                    }
+                }
+
+                & .icons-container {
+                    padding-top: 30px;
+                    display: flex;
+                    width: 100%;
+                    justify-content: start;
+
+                    & div {
+                        display: flex;
+                        width: 440px;
+                        justify-content: space-between;
+                        & i {
+                            font-size: 30px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    & .first-container {
+        margin-top: 120px;
+        width: 100%;
+        height: 550px;
+        display: grid;
+        place-items: center;
+
+        & section {
+            & .row {
+                & div:first-child {
+                    position: relative;
+                    height: 100%;
+                    width: 54.5%;
+                    background: url('images/morning-meditation-732x549-thumbnail.jpg');
+                    background-size: cover;
+                    background-position: center;
+                    border-radius: 5px;
+                    cursor: pointer;
+                    transition: .2s;
+                    opacity: 1;
+
+                    & a {
+                        width: 100%;
+                        height: 100%;
+                        & span {
+                            position: absolute;
+                            height: 170px;
+                            bottom: 20px;
+                            left: 20px;
+                            right: 20px;
+                            color: black;
+                            background-color: white;
+                            border-radius: 5px;
+                            font-family: "Proxima Nova SemiBold", "Proxima Nova Fallback", sans-serif;
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: space-between;
+    
+                            & p:nth-child(1) {
+                                font-size: 34px;
+                                margin: 20px 20px 0 20px;
+                            }
+    
+                            & p:nth-child(1):hover {
+                                color: #db1f88;
+                            }
+    
+                            & p:last-child {
+                                font-size: 19px;
+                                font-family: "Proxima Nova Regular", "Proxima Nova Fallback", sans-serif;
+                                margin: 0 20px 25px 20px;
+                            }
+                        }
+                    }
+                }
+
+                /* Hover Effect */
+                & div:first-child:hover {
+                    opacity: .8;
+                }
+
+
+                & div:nth-child(2) {
+                    position: relative;
+                    height: 100%;
+                    width: 41%;
+                    border-radius: 5px;
+                    display: flex;
+                    flex-direction: column;
+                    transition: .2s;
+                    opacity: 1;
+                    cursor: pointer;
+
+                    & a {
+                        width: 100%;
+                        height: 100%;
+                        & img {
+                            position: absolute;
+                            top: 0;
+                            width: 100%;
+                            height: 63%;
+                            object-fit: cover;
+                            object-position: center;
+                            border-radius:  5px 5px 0 0;
+                        }
+    
+                        & span {
+                            position: absolute;
+                            height: auto;
+                            bottom: 0px;
+                            left: 0px;
+                            right: 0px;
+                            border-radius: 0;
+                            font-family: "Proxima Nova SemiBold", "Proxima Nova Fallback", sans-serif;
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: space-between;
+                            background-color: rgb(255, 255, 255);
+                            color: black;
+    
+                            & p:nth-child(1) {
+                                font-size: 34px;
+                                margin: 20px 20px 0 20px;
+                            }
+    
+                            & p:nth-child(1):hover {
+                                color: #db1f88;
+                            }
+    
+                            & p:last-child {
+                                font-size: 19px;
+                                font-family: "Proxima Nova Regular", "Proxima Nova Fallback", sans-serif;
+                                margin: 0 20px 20px 20px;
+                            }
+                        }
+                    }
+                }
+
+                /* Hover Effect */
+                & div:nth-child(2):hover {
+                    opacity: .8;
+                }
+            }
+        }
+    }
+
+    & .explore-by {
+        width: 100%;
+        height: 300px;
+        font-family: "Proxima Nova Regular";
+        display: grid;
+        place-items: center;
+        margin-top: 70px;
+
+        & section {
+            & .column {
+                & .section-header {
+                    & span {
+                        font-size: 18px;
+                        font-weight: 700;
+                    }
+                }
+
+                & .row {
+                    & a {
+                        text-decoration: none;
+                        color: black;
+                        width: 180px;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        font-size: 26px;
+                        font-weight: 700;
+                        margin-top: 30px;
+                        transition: .3;
+
+                        & img {
+                            width: 100%;
+                        }
+
+                        & span {
+                            margin-top: 5px;
+                        }
+                    }
+
+                    & a:hover  img {
+                        opacity: .8;
+                    }
+
+                    & a:hover  span{
+                        color: #db1f88;
+                    }
+                }
+            }
+        }
+    }
+
+    & .this-just-in {
+        width: 100%;
+        height: 425px;
+        font-family: "Proxima Nova Regular";
+        display: grid;
+        place-items: center;
+        margin-top: 70px;
+
+        & section {
+            & .row {
+                margin-top: 20px;
+                list-style: none;
+                display: grid;
+                grid-template-columns: 530px 530px;
+                justify-content: space-between;
+                align-items: center;
+                width: 100%;
+                height: 410px;
+                padding: 0;
+
+                & a {
+                    display: flex;
+                    justify-content: space-between;
+                    height: 134px;
+                    text-decoration: none;
+                    color: black;
+
+                    & img {
+                        width: 145px;
+                        height: 109px;
+                        opacity: 1;
+                        transform: .3;
+                    }
+
+                    & img:hover {
+                        opacity: .8;
+                    }
+
+                    & span {
+                        width: 370px;
+
+                        & p:first-child {
+                            font-size: 26px;
+                            font-weight: bold;
+                        }
+
+                        & p:first-child:hover {
+                            color: #db1f88;
+                        }
+
+                        & p:nth-child(2) {
+                            width: 315px;
+                            font-size: 17px;
+                            margin-top: 4px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    & .more-top-reads {
+        width: 100%;
+        font-family: "Proxima Nova Regular";
+        display: grid;
+        place-items: center;
+        margin-top: 70px;
+
+        & section {
+            & .column {
+                & .row {
+                    height: 275px;
+                    margin-top: 18px;
+
+                    & a {
+                        width: 257px;
+                        height: 247px;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: start;
+                        text-decoration: none;
+                        opacity: 1;
+
+                        & img {
+                            width: 100%;
+                            border-radius: 5px;
+                        }
+
+                        & p {
+                            font-size: 17px;
+                            font-weight: 600;
+                            color: black;
+                            margin-top: 10px;
+                        }
+                    }
+
+                    & a:hover {
+                        opacity: .8;
+                    }
+
+                    & a:hover p {
+                        color: #db1f88;
+                    }
+                }
+            }
+
+            & .video-container {
+                position: relative;
+                height: 618px;
+                width: 100%;
+                margin-top: 50px;
+                display: flex;
+                justify-content: center;
+                cursor: pointer;
+
+                & video {
+                    width: 100%;
+                    height: 100%;
+                    background: url(https://assets-jpcust.jwpsrv.com/thumbnails/T6UpbXPx-1280.jpg);
+                    background-position: center;
+                    background-size: cover;
+                }
+
+                & .view {
+                    height: 150px;
+                    width: 96%;
+                    position: absolute;
+                    bottom: 25px;
+                    z-index: 10;
+
+                    & .row {
+                        height: auto;
+                        align-items: end;
+
+                        & i {
+                            font-size: 95px;
+                            color: white;
+                            height: 94px;
+                            border-radius: 100px;
+                            padding: 0px;
+                            display: grid;
+                            place-items: center;
+                        }
+
+                        & .column {
+                            width: 89%;
+                            align-items: start;
+
+                            & p {
+                                color: white;
+                            }
+
+                            & p:first-child {
+                                font-size: 18px;
+                                font-family: sans-serif;
+                                font-weight: lighter;
+                            }
+
+                            & p:nth-child(2) {
+                                font-size: 35px;
+                                font-family: sans-serif;
+                                font-weight: bolder;
+                            }
+
+                            & p:last-child {
+                                font-size: 18px;
+                                font-family: sans-serif;
+                                font-weight: normal;
+                                margin-top: 8px;
+                            }
+                        }
+                    }
+                }
+            }
+
+            & .video-container:hover .bi-play-circle-fill {
+                background-color:#02838d;
+            }
+        }
+    }
+
+    & .more-top-videos {
+        width: 100%;
+        height: 322px;
+        font-family: "Proxima Nova Regular";
+        display: grid;
+        place-items: center;
+        margin-top: 70px;
+
+        & section {
+            & .section-header {
+                & span {
+                    font-size: 18px;
+                    font-weight: 700;
+                }
+            }
+
+            & .row {
+                height: 275px;
+                margin-top: 18px;
+
+                & a {
+                    width: 257px;
+                    height: 247px;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: start;
+                    text-decoration: none;
+                    opacity: 1;
+
+                    & img {
+                        width: 100%;
+                        border-radius: 5px;
+                    }
+
+                    & p {
+                        font-size: 17px;
+                        font-weight: 600;
+                        color: black;
+                        margin-top: 10px;
+                    }
+                }
+
+                & a:hover {
+                    opacity: .8;
+                }
+
+                & a:hover p {
+                    color: #db1f88;
+                }
+            }
+        }
+    }
+
+    & .health-condition {
+        width: 100%;
+        height: 300px;
+        font-family: "Proxima Nova Regular";
+        display: grid;
+        place-items: center;
+        margin-top: 70px;
+
+        & section {
+            & .column {
+                & .section-header {
+                    & span {
+                        font-size: 18px;
+                        font-weight: 700;
+                    }
+                }
+
+                & .row {
+                    & a {
+                        height: 100%;
+                        width: 180px;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        font-size: 26px;
+                        font-weight: 700;
+                        margin-top: 30px;
+                        text-decoration: none;
+                        opacity: 1;
+
+                        & img {
+                            width: 100%;
+                        }
+
+                        & span {
+                            margin-top: 5px;
+                            text-align: center;
+                            color: black;
+                        }
+                    }
+
+                    & a:hover {
+                        opacity: .8;
+                    }
+
+                    & a:hover span {
+                        color: #db1f88;
+                    }
+                }
+            }
+        }
+    }
+
+    & .product-reviews {
+        width: 100%;
+        height: 300px;
+        font-family: "Proxima Nova Regular";
+        display: grid;
+        place-items: center;
+        margin-top: 70px;
+
+        & section {
+            & .column {
+                & .section-header {
+                    & span {
+                        font-size: 18px;
+                        font-weight: 700;
+                    }
+                }
+
+                & .row {
+                    & a {
+                        height: 100%;
+                        width: 180px;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        font-size: 26px;
+                        font-weight: 700;
+                        margin-top: 30px;
+                        text-decoration: none;
+                        opacity: 1;
+                        
+
+                        & img {
+                            width: 100%;
+                        }
+
+                        & span {
+                            margin-top: 5px;
+                            text-align: center;
+                            color: black;
+                        }
+                    }
+
+                    & a:hover {
+                        opacity: .8;
+                    }
+
+                    & a:hover span {
+                        color: #db1f88;
+                    }
+                }
+            }
+        }
+    }
+
+    & .spotlight {
+        width: 100%;
+        height: auto;
+        font-family: "Proxima Nova Regular";
+        display: grid;
+        place-items: center;
+        margin-top: 70px;
+
+        & section {
+            & .column {
+                & .row {
+                    height: 420px;
+                    align-items: end;
+                    margin-top: 30px;
+
+                    & a {
+                        height: 100%;
+                        & img {
+                            width: 260px;
+                            opacity: 1;
+                        }
+                    }
+
+                    & a:hover img{
+                        opacity: .8;
+                    }
+                }
+            }
+        }
+    }
+
+    & .healthline {
+        width: 100%;
+        height: 562.914px;
+        font-family: "Proxima Nova Regular";
+        display: grid;
+        place-items: center;
+        margin-top: 70px;
+        background-color: #D2E6E8;
+
+        & .bg-img {
+            width: 100%;
+            height: 100%;
+            display: grid;
+            place-items: center;
+            background-image: url('https://post.healthline.com/wp-content/uploads/2021/11/HL-Editorial-Standard-Widget.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: right;
+
+            & section {
+                width: 72%;
+
+                & .column {
+                    align-items: start;
+                    justify-content: center;
+                    margin-top: -80px;
+
+                    & img {
+                        width: 160px;
+                        margin: 0 0 -60px -5px;
+                    }
+
+                    & h1 {
+                        color: black;
+                        font-size: 50px;
+                        margin-bottom: 26px;
+                    }
+
+                    & p {
+                        font-size: 18px;
+                        font-family: "Proxima Nova Regular";
+                        line-height: 27px;
+                        width: 600px;
+                        margin-bottom: 26px;
+                    }
+
+                    & li {
+                        line-height: 26px;
+                        margin-bottom: 26px;
+                        font-size: 18px;
+                        width: 600px;
+                    }
+
+                    & a {
+                        display: flex;
+                        align-items: center;
+                        font-size: 18px;
+                        text-decoration: none;
+                        color: black;
+                    }
+
+                    & a:hover {
+                        color: #db1f88;
+                    }
+
+                }
+            }
+        }
+    }
+
+    & .explore-topics {
+        width: 100%;
+        height: 322px;
+        font-family: "Proxima Nova Regular";
+        display: grid;
+        place-items: center;
+        margin-top: 70px;
+
+        & section {
+            & .section-header {
+                & span {
+                    font-size: 18px;
+                    font-weight: 700;
+                }
+            }
+
+            & .row {
+                height: 275px;
+                margin-top: 18px;
+
+                & a {
+                    width: 257px;
+                    height: 247px;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: start;
+                    text-decoration: none;
+                    opacity: 1;
+
+                    & img {
+                        width: 100%;
+                        border-radius: 5px;
+                    }
+
+                    & p {
+                        font-size: 17px;
+                        font-weight: 600;
+                        color: black;
+                        margin-top: 10px;
+                    }
+                }
+
+                & a:hover {
+                    opacity: .8;
+                }
+
+                & a:hover p {
+                    color: #db1f88;
+                }
+            }
+        }
+    }
+
+    & footer {
+        position: relative;
+        height: 695px;
+        width: 100%;
+        font-family: "Proxima Nova Regular";
+        display: grid;
+        place-items: center;
+        margin-top: 70px;
+        background-color: #fbf5ed;
+
+        & section {
+            position: relative;
+            align-items: start;
+            padding: 0;
+            margin: 0;
+
+            & .column {
+                margin-top: 60px;
+                height: 440px;
+                margin-top: 60px;
+
+                & .row-1 {
+                    display: flex;
+                    justify-content: start;
+                    margin-bottom: 60px;
+                    align-items: center;
+
+                    & img:first-child {
+                        height: 32px;
+                        padding-right: 50px;
+                    }
+
+                    & .icons {
+                        width: 175px;
+                        display: flex;
+                        justify-content: space-between;
+                        font-size: 20px;
+                        cursor: pointer;
+
+                        & i:hover {
+                            color: red;
+                        }
+                    }
+                }
+
+                & .row-2 {
+                    display: flex;
+                    align-items: start;
+                    justify-content: space-between;
+
+                    & .column-1 {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: start;
+                        justify-content: start;
+                        font-size: 16px;
+                        width: 42%;
+
+                        & h1 {
+                            font-size: 25px;
+                            margin-bottom: 15px;
+                        }
+
+                        & p {
+                            margin-bottom: 24px;
+                        }
+
+                        & p:last-child {
+                            margin-top: 24px;
+
+                            & a {
+                                color: black;
+                            }
+
+                            & a:hover {
+                                color: #db1f88;
+                            }
+                            
+                        }
+
+                        & form {
+                            position: relative;
+                            height: 50px;
+                            display: flex;
+                            align-items: center;
+
+                            & input {
+                                width: 215px;
+                                height: 100%;
+                                outline: none;
+                                box-sizing: border-box;
+                                border-radius: 0;
+                                border: 1px solid rgb(118, 116, 116);
+                                border-right: none;
+                                font-size: 16px;
+                                padding: 18px;
+                                pointer-events:all;
+                            }
+
+                            & button {
+                                width: 150px;
+                                height: 100%;
+                                outline: 0;
+                                margin: 0 0 0 -3px;
+                                border-radius: 0;
+                                border: none;
+                                background-color: rgb(2, 131, 141);
+                                color: white;
+                                cursor: pointer;
+                            }
+
+                            & button:hover {
+                                background-color: #db1f88;
+                            }
+
+                            & span {
+                                display: none;
+                                font-size: 15px;
+                                position: absolute;
+                                margin-left: 18px;
+                                color: red;
+                                background-color: white;
+                                cursor:default;
+                            }
+                        }
+                    }
+
+                    & .row {
+                        width: 510px;
+                        height: 360px;
+
+
+                        & .column {
+                            width: 32%;
+                            height: 100%;
+                            justify-content: start;
+                            align-items: start;
+                            margin: 0;
+
+                            & a {
+                                height: 28px;
+                                margin-bottom: 20px;
+                                text-decoration: none;
+                                color: black;
+                            }
+
+                            & a:hover {
+                                color: #db1f88;
+                            }
+                        }
+
+                        & .column:nth-child(2) {
+                            width: 68%;
+                        }
+                    }
+                }
+            }
+        }
+
+        & .last-container {
+            display: grid;
+            place-items: center;
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            height: 130px;
+            background-color: black;
+
+            & section {
+                & .row {
+                    width: 100%;
+                    height: 100%;
+                    display: flex;
+                    align-items: center;
+
+                    & .row-3 {
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        width: 720px;
+                        height: auto;
+                        justify-content: space-between;
+
+
+                        & .column {
+                            width: 548px;
+                            height: 62px;
+                            margin: 0;
+
+                            & .row:first-child {
+                                justify-content: end;
+                                font-size: 14px;
+
+                                & a {
+                                    position: relative;
+                                    padding: 0 18px;
+                                    color: #dcdbdb;
+                                }
+
+                                & a:last-child {
+                                    padding: 0 0 0 18px;
+                                    color: #dcdbdb;
+                                }
+
+                                & a::after {
+                                    content: "I";
+                                    position: absolute;
+                                    right: 0;
+                                    color: white;
+                                }
+
+                                & a:last-child::after {
+                                    content: "";
+                                    position: absolute;
+                                    right: 0;
+                                }
+
+                                & a:hover {
+                                    color: #db1f88;
+                                }
+                            }
+
+                            & .row:last-child {
+                                display: flex;
+                                align-items: center;
+                                font-size: 14px;
+
+                                & a {
+                                    margin: 0;
+                                    height: auto;
+                                    color: #dcdbdb;
+                                }
+
+                                & a:nth-child(1) {
+                                    font-size: 15px;
+                                    text-decoration: none;
+                                    height: auto;
+                                    color: #dcdbdb;
+                                    font-weight: bolder;
+                                }
+
+                                & a:nth-child(1):hover {
+                                    color: #dcdbdb;
+                                }
+
+                                & a:hover {
+                                    color: #db1f88;
+                                }
+                            }
+                        }
+                    }
+
+                }
+            }
+        }
+    }
+}
+
+.tag-1:hover .main-container-1  {
+    animation: HeaderaAnimation 2s ;
+    background-color: lightblue;
+}
+
+@keyframes HeaderaAnimation {
+    0% {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
