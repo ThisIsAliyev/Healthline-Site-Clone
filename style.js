@@ -38,6 +38,7 @@ function hideHiddenContent() {
   }
 }
 
+// opened section daixli 
 
 for (let i = 1; i <= 4; i++) {  
     let tagElement = document.querySelector(`.tag-${i}`);
@@ -69,19 +70,13 @@ mainContainer.addEventListener('mouseout', () => {
 
 function showContent() {
   if (isOverTag || isOverSection) {
-    mainContainer.style.opacity = '1';
-    mainContainer.style.transform = 'translateY(0)';
     mainContainer.style.display = 'flex';
-    console.log('no');
   }
 }
 
 function hideContent() {
   if (!isOverTag && !isOverSection) {
-    mainContainer.style.opacity = '0';
-    mainContainer.style.transform = 'translateY(-100%)';
     mainContainer.style.display = 'none';
-    console.log('heyy');
   }
 }
 }
@@ -89,9 +84,18 @@ function hideContent() {
 
 
 
-// header tagları üzərinə gəldikdə opened section daxilində contentlərin açılması
+// video container
 
+let video = document.querySelector('video');
+let videoContainer = document.querySelector('.video-container');
+let view = document.querySelector('.view');
 
+videoContainer.onclick = ()=> {
+  view.style.display = 'none';
+  video.src = "x2mate.com-The World's Best Teacher.mp4";
+  video.controls = true;
+  video.play();
+}
 
 
 
